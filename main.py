@@ -20,10 +20,11 @@ def get_largest_prime_below(n):
 def test_get_largest_prime_below():
     assert(get_largest_prime_below(12)) == 11
     assert(get_largest_prime_below(3)) == 2
+    assert(get_largest_prime_below(24)) == 23
 
 
 
-def is_palindrome(n):
+def is_palindrome(n) -> bool:
     '''
     Functia determina daca un numar este sau nu palindrom
     :param n: Numarul care trebuie sa fie testat
@@ -43,7 +44,34 @@ def is_palindrome(n):
 def test_is_palindrome():
     assert(is_palindrome(121)) == True
     assert(is_palindrome(122)) == False
+    assert(is_palindrome(575)) == True
 
+
+def get_temp(temp: float, _from: str,to: str) -> float:
+    '''
+    Transforma o temperatura dintr-o scara(C, F, K) in alta
+    :param temp: Temperatura care trebuie transformata
+    :param _from: Scara in care se afla temperatura
+    :param to: Scara in care trebuie transformata temperatura
+    :return: Temperatura in scara ceruta; float;
+    '''
+    if _from == "C" and to == "K":
+        return temp+273.15
+    elif _from == "C" and to == "F":
+        return ((temp*9)/5)+32
+    elif _from == "F" and to == "C":
+        return (temp-32)*5/9
+    elif _from == "F" and to == "K":
+        return ((temp-32)*5/9)+273.15
+    elif _from == "K" and to == "C":
+        return temp-237.15
+    else:
+        return ((temp-273.15)*9/5)+32
+
+def test_get_temp():
+    assert get_temp(0, "C", "F") == 32.0
+    assert get_temp(100, "C", "K") == 373.15
+    assert get_temp(68, "F", "C") == 20.0
 
 
 
@@ -54,6 +82,10 @@ while isRunning == True:
     print(get_largest_prime_below(n1))
     n2 = int(input("Introduceti datele pentru Problema 2(Verificati daca numarul este palindrom):"))
     print(is_palindrome(n2))
+    Temperatura = float(input("Introduceti temperatura: "))
+    Scara1 = input("Introduceti scara initiala: ")
+    Scara2 = input("Introduceti scara dorita: ")
+    print(get_temp(Temperatura,Scara1,Scara2))
     opt = int(input("Daca doriti sa opriti aplicatia apasati tasta 0, iar daca doriti sa continuati apasati orice alta tasta:"))
     if opt == 0:
         isRunning=False
