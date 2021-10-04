@@ -1,20 +1,22 @@
+def isPrime(n):
+    if n<2:
+        return False
+    else:
+        for i in range(2, n//2+1):
+            if n % i == 0:
+                return False
+        return True
+
+
 def get_largest_prime_below(n):
     '''
     Functia afiseaza cel mai mare numar prim, mai mic decat numarul dat
     :param n: Parametru fata de care numarul prim trebuie sa fie mai mic
     :return: int; Un numar prim mai mic decat parametrul n
     '''
-    if n<=2:
-        print("Numarul trebuie sa fie mai mare decat 2")
-    else:
-        for Numar in range(n-1,-1,-1):
-            NrDivizori = 0
-            for i in range(2, Numar//2+1):
-                if Numar % i == 0:
-                    NrDivizori+=1
-            if NrDivizori == 0:
-                print(Numar)
-                break
+    for Numar in range(n-1,-1,-1):
+        if isPrime(Numar) == True:
+            return Numar
 
 
 def test_get_largest_prime_below():
