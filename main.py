@@ -76,20 +76,22 @@ def test_get_temp():
     assert get_temp(68, "F", "C") == 20.0
 
 
+def main():
+    isRunning = True
+    while isRunning == True:
+        n1 = int(input("Introduceti datele pentru Problema 1(Cel mai mare numar prim mai mic decat numarul dat):"))
+        print(get_largest_prime_below(n1))
+        n2 = int(input("Introduceti datele pentru Problema 2(Verificati daca numarul este palindrom):"))
+        print(is_palindrome(n2))
+        Temperatura = float(input("Introduceti temperatura: "))
+        Scara1 = input("Introduceti scara initiala: ")
+        Scara2 = input("Introduceti scara dorita: ")
+        print(get_temp(Temperatura,Scara1,Scara2))
+        opt = int(input("Daca doriti sa opriti aplicatia apasati tasta 0, iar daca doriti sa continuati apasati orice alta tasta:"))
+        if opt == 0:
+            isRunning=False
+        else:
+            isRunning = True
 
-
-isRunning = True
-while isRunning == True:
-    n1 = int(input("Introduceti datele pentru Problema 1(Cel mai mare numar prim mai mic decat numarul dat):"))
-    print(get_largest_prime_below(n1))
-    n2 = int(input("Introduceti datele pentru Problema 2(Verificati daca numarul este palindrom):"))
-    print(is_palindrome(n2))
-    Temperatura = float(input("Introduceti temperatura: "))
-    Scara1 = input("Introduceti scara initiala: ")
-    Scara2 = input("Introduceti scara dorita: ")
-    print(get_temp(Temperatura,Scara1,Scara2))
-    opt = int(input("Daca doriti sa opriti aplicatia apasati tasta 0, iar daca doriti sa continuati apasati orice alta tasta:"))
-    if opt == 0:
-        isRunning=False
-    else:
-      isRunning = True
+if __name__ == '__main__':
+    main()
